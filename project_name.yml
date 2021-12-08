@@ -1,0 +1,9 @@
+---
+- hosts: all
+  var_files:
+  - "hosts.d/{{ host_envt }}/group_vars/project_name_{{ site|lower }}.yml"
+  ignore_errors: no
+  #serial: 1
+  roles:
+  - install_project_name
+...

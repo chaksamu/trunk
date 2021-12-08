@@ -1,0 +1,4 @@
+---
+- name: Include task for Pre-validation
+  include_tasks: application_valid.yml
+...
