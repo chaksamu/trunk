@@ -1,8 +1,5 @@
 ---
 - hosts: all
-  var_files: hosts.d/sredev/group_vars/project_name_sredev.yml
-  ignore_errors: no
-  #serial: 1
-  roles:
-    - install_project_name 
-...
+  tasks:
+    - name: Test the ping 
+      shell: ping -c3 google.com
