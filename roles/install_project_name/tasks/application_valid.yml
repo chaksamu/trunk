@@ -1,0 +1,4 @@
+---
+- name: "Check the Ping Status"
+  shell: ping -c3 google.com
+...
