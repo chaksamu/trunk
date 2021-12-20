@@ -4,3 +4,4 @@ thirdparty_installation_dir: "{{ software_installation_dir }}/thirdparty"
 app_name: project_name
 process_info: "{{ software_installation_dir }}/{{ app_name }}"
 ...
+

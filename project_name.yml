@@ -2,7 +2,7 @@
 - hosts: all
   var_files:
     #- "hosts.d/{{ host_envt }}/group_vars/project_name_{{ site|lower }}.yml"
-  - "hosts.d/sredev/group_vars/project_name_sredev.yml"
+  - hosts.d/sredev/group_vars/project_name_sredev.yml
   ignore_errors: no
   #serial: 1
   roles:
