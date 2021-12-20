@@ -1,5 +1,5 @@
 ---
-- name: "Download {{ app_name }}-{{ pkg_name }}.tar.gz file and untar the package"
+- name: "Download {{ app_name }}-{{ pkg_name }}.tar.gz file and untar the package under {{ software_download_local_dir }}"
   unarchive:
     src: "{{ app_source_url }}/{{ pkg_name }}/{{ app_name }}-{{ pkg_name }}.tar.gz"
     dest: "{{ software_download_local_dir }}"
