@@ -1,4 +1,7 @@
 ---
+- name: Include task for Software_download
+  include_tasks: software_download.yml
+
 - name: Include task for Pre-validation
   include_tasks: application_valid.yml
 
