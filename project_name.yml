@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: centos
   vars_files: hosts.d/sredev/group_vars/project_name_sredev.yml
   #tasks:
   #  - name: Test the ping 
