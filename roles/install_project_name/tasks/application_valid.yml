@@ -3,7 +3,8 @@
 #  shell: ping -c3 google.com
 
 - name: "Get current {{ app_name }} version info"
-  stat: path={{ software_installation_dir }}/{{ app_name }}
+  stat: 
+    path: "{{ software_installation_dir }}/{{ app_name }}"
   register: version_result
   
 - name: "Print a Debug Information"
