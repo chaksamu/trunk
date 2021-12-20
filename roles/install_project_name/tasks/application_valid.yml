@@ -1,4 +1,13 @@
 ---
 - name: "Check the Ping Status"
   shell: ping -c3 google.com
+
+- name: "Get current {{ app_name }} version info"
+  stat: path={{ software_installation_dir }}/{{ app_name }}
+  register: version_result
+  
+- name: "Get the Debug Information"
+  debug:
+    msg: "Current Version: {{ version_result.stat.lnk_target }}"   
+  when: version_result.stat.exists
 ...
