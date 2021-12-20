@@ -14,5 +14,5 @@
 
 - name: "Get the all.yml variables Values"
   debug:
-    msg: "{{ host_envt }}   and  {{ site }}"
+    msg: "{{ host_envt }}   and  {{ site }}  and {{ myubuntu }} and {{ mycentos }}"
 ...
