@@ -4,6 +4,7 @@ pipeline{
     stages{
         stage('SCM Checkout') {
             steps{
+                cleanWs()
                 git branch: 'master', url: 'https://github.com/chaksamu/trunk.git'
             }
         }
