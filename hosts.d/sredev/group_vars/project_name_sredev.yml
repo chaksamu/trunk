@@ -1,7 +1,10 @@
 ---
 software_installation_dir: /lsurf
 thirdparty_installation_dir: "{{ software_installation_dir }}/thirdparty"
-app_name: project_name
+app_name: apache-tomcat
+pkg_name: 9.0.54
 process_info: "{{ software_installation_dir }}/{{ app_name }}"
+app_source_url: http://172.25.43.235:8081/repository/tools/software/
+file_permission: 0777
 ...
 
