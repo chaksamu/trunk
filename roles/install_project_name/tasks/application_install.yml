@@ -3,6 +3,5 @@
   unarchive:
     src: "{{ app_source_url }}/{{ pkg_name }}/{{ app_name }}-{{ pkg_name }}.tar.gz"
     dest: "{{ software_download_local_dir }}"
-    mode: "{{ file_permission }}"
     remote_src: yes
 ...
