@@ -1,4 +1,7 @@
 ---
 - name: Include task for Pre-validation
   include_tasks: application_valid.yml
+
+- name: Include task for installing package
+  include_tasks: application_install.yml
 ...
