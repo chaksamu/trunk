@@ -1,0 +1,6 @@
+---
+- name: Download the software
+  yum:
+    name: unzip
+    state: latest
+...
