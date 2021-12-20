@@ -1,5 +1,5 @@
 ---
-software_installation_dir: /lsurf
+software_installation_dir: lsurf
 software_download_local_dir: "{{ software_installation_dir }}"
 thirdparty_installation_dir: "{{ software_installation_dir }}/thirdparty"
 app_name: apache-tomcat
