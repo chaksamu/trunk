@@ -11,4 +11,8 @@
   debug:
     msg: "Current Version: {{ version_result.stat.lnk_target }}"   
   when: version_result.stat.exists
+
+- name: "Get the all.yml variables Values"
+  debug:
+    msg: "{{ host_envt }}   and  {{ site }}"
 ...
