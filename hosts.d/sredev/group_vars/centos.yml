@@ -2,4 +2,5 @@
 #[centos:vars]
 ansible_user: allinone
 mycentos: ccccccc
+myubuntu: ucucucucucucuc
 ...

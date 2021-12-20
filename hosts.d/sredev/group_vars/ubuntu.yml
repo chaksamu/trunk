@@ -1,4 +1,5 @@
 ---
 #[ubuntu:vars]
 ansible_user: ubuntu
+myubuntu: uuuuuuu
 ...
