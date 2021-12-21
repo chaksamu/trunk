@@ -1,8 +1,7 @@
 ---
 - name: Download the software
   yum:
-    name: {{ packages }}
-    state: latest
+    name: "{{ packages }}"
   vars:
     packages:
       - unzip
