@@ -35,4 +35,18 @@
     msg: "{{ app_stop.stdout_lines }}"
   when: (version_result.stat.exists and process_info in process_info_check.stdout)
 
+- name: Terminate if process is still running
+  fail: 
+    msg:
+      - "{{ app_name }} IS STILL RUNNING  ::: "
+      - "{{ process_info_check_after.stdout_lines }}"
+  when: process_info in process_info_check_after.stdout
+  
+- name: Validated that the process is not running anymore.
+  debug:
+    msg: 
+      - "Process Info"
+      - "-----------------"
+      - "Process Not Running"
+  when: process_info not in process_info_check_after.stdout
 ...
