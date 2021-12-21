@@ -19,4 +19,14 @@
       - "-----------------"
       - "{{ app_name }} Not Running"
   when: process_info not in process_info_check.stdout
+
+- name: Stop application  
+  shell: >
+         cd {{ software_installation_dir }}/{{ app_name }}/bin;
+         ./shutdown.sh
+         #./control stop;
+         sleep 5;
+  register: app_stop
+  delegate_to: "{{ delegate_host }}"
+  when: (version_result.stat.exists and process_info in process_info_check.stdout)
 ...
