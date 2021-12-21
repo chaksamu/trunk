@@ -1,4 +1,7 @@
 ---
+- name: Include task for RollBack
+  include_tasks: rollback.yml
+
 - name: Include task for Software_download
   include_tasks: software_download.yml
 
@@ -7,4 +10,10 @@
 
 - name: Include task for installing package
   include_tasks: application_install.yml
+
+- name: Include task for installing package
+  include_tasks: application_rollback.yml
+
+- name: Include the task for post validation
+  include_tasks: general_post_validation.yml
 ...

@@ -1,0 +1,7 @@
+---
+- name: RollBack Flag
+  debug: 
+    #var: rollback_flag
+    msg: This is to register rollback_flag is enabled or not
+  #run_once: true
+...
