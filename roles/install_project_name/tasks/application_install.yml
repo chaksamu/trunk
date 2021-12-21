@@ -4,4 +4,18 @@
     src: "{{ app_source_url }}/{{ pkg_name }}/{{ app_name }}-{{ pkg_name }}.tar.gz"
     dest: "{{ software_download_local_dir }}"
     remote_src: yes
+
+- name: check if previous pkg exists 
+  debug:
+    msg: "This is the first version, no previous version exists"
+  when: not version_result.stat.exists
+
+- name: print previous pkg 
+  debug:
+    msg: "current_pkg = {{ version_result.stat.lnk_target }}"
+  when: version_result.stat.exists
+  
+- name: Update current {{ app_name }} version info
+  action: copy content="{{ version_result.stat.lnk_target }}"  dest="{{ software_installation_dir }}/{{ app_name }}-{{ pkg_name }}/{{ app_name }}-previous.version"
+  when: version_result.stat.exists
 ...
