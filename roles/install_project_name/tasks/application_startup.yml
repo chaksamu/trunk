@@ -1,0 +1,22 @@
+---
+- name: Check process info
+  shell: 'ps -ef | grep -v grep | grep -i "{{ process_info }}" | cat'
+  register: process_info_check
+  delegate_to: "{{ delegate_host }}"
+
+- name: Get the Process info when actual process is running
+  debug:
+    msg:
+      - "{{ app_name }} Process Info"
+      - "-----------------"
+      - "{{ process_info_check.stdout_lines }}"
+  when: process_info in process_info_check.stdout
+
+- name: Get the Process info when actual process is not running
+  debug:
+    msg:
+      - "Process Info"
+      - "-----------------"
+      - "{{ app_name }} Not Running"
+  when: process_info not in process_info_check.stdout
+...
