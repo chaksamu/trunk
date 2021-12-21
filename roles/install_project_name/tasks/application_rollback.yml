@@ -5,6 +5,7 @@
 
 - name: Check previous version
   slurp:
+    #src: "{{ software_installation_dir }}/{{ app_name }}/{{ app_name }}-previous.version"
     src: "{{ software_installation_dir }}/{{ app_name }}-{{ pkg_name}}/{{ app_name }}-previous.version"
   register: previous_pkg_file
 
