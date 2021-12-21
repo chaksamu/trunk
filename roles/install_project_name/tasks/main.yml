@@ -1,9 +1,9 @@
 ---
 - name: Include task for RollBack
   include_tasks: rollback.yml
-
-- name: Include task for Software_download
-  include_tasks: software_download.yml
+#Tested Successfully
+#- name: Include task for Software_download
+#  include_tasks: software_download.yml
 
 - name: Include task for Pre-validation
   include_tasks: application_valid.yml
