@@ -1,6 +1,10 @@
 ---
 - name: Download the software
   yum:
-    name: unzip
+    name: {{ packages }}
     state: latest
+  vars:
+    packages:
+      - unzip
+      - curl  
 ...

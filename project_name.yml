@@ -2,9 +2,6 @@
 - hosts: all
   gather_facts: false
   vars_files: hosts.d/sredev/group_vars/project_name_sredev.yml
-  #tasks:
-  #  - name: Test the ping 
-  #    shell: ping -c3 google.com
   roles:
     - install_project_name
 ...
