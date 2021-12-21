@@ -10,7 +10,7 @@
 
 - name: Include task for installing package
   include_tasks: application_install.yml
-  when: rollback_flag is defined and rollback_flag == 'false' and (not version_result.stat.exists or (version_result.stat.exists and pkg_name not in version_result.stat.lnk_target))
+  when: rollback_flag is defined and rollback_flag == 'true' and (not version_result.stat.exists or (version_result.stat.exists and pkg_name not in version_result.stat.lnk_target))
 
 - name: Include task for installing package
   include_tasks: application_rollback.yml
