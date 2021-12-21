@@ -35,6 +35,11 @@
     msg: "{{ app_stop.stdout_lines }}"
   when: (version_result.stat.exists and process_info in process_info_check.stdout)
 
+- name: Check process info
+  shell: 'ps -ef | grep -v grep | grep -i "{{ process_info }}" | cat'
+  register: process_info_check_after  
+  delegate_to: "{{ delegate_host }}"
+
 - name: Terminate if process is still running
   fail: 
     msg:
