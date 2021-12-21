@@ -54,4 +54,31 @@
       - "-----------------"
       - "Process Not Running"
   when: process_info not in process_info_check_after.stdout
+
+- name: Create soft link {{ app_name }}
+  shell: >
+         cd {{ software_installation_dir }};
+         ln -nfs {{ app_name }}-{{ pkg_name }} {{ app_name }}; 
+  when: (version_result.stat.exists and pkg_name not in version_result.stat.lnk_target) or (not version_result.stat.exists)
+  delegate_to: "{{ delegate_host }}"
+  
+- name: Start application
+  shell: >
+         cd {{ software_installation_dir }}/{{ app_name }}/bin;
+         ./startup.sh
+         #./control start;
+         sleep 10;
+  delegate_to: "{{ delegate_host }}"
+
+- name: Check process info
+  shell: 'ps -ef | grep -v grep | grep -i "{{ process_info }}" | cat'
+  register: process_info_check
+  delegate_to: "{{ delegate_host }}"
+  
+- name: Final Check after Process Started Successfully.
+  debug:
+    msg: 
+      - "{{ app_name }} Process Info"
+      - "-----------------"
+      - "{{ process_info_check.stdout_lines }}"
 ...
