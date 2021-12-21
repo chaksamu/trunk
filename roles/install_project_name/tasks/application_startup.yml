@@ -29,4 +29,10 @@
   register: app_stop
   delegate_to: "{{ delegate_host }}"
   when: (version_result.stat.exists and process_info in process_info_check.stdout)
+
+- name: Stop and status result
+  debug: 
+    msg: "{{ app_stop.stdout_lines }}"
+  when: (version_result.stat.exists and process_info in process_info_check.stdout)
+
 ...
