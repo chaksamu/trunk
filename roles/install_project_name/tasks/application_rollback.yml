@@ -2,4 +2,14 @@
 - name: Application Rollback
   debug:
     msg: This is to execute when we need to select rollback flag
+
+- name: Check previous version
+  slurp:
+    src: "{{ software_installation_dir }}/{{ app_name }}/{{ app_name }}-previous.version"
+  register: previous_pkg_file
+
+- name: Previous package version
+  debug:
+    msg: "{{ previous_pkg_file['content'] | b64decode | replace('\n', '') }}"
+  when: ((previous_pkg_file is defined) and (previous_pkg_file != None))
 ...

@@ -8,6 +8,6 @@ process_info: "{{ software_installation_dir }}/{{ app_name }}"
 app_source_url: "http://172.25.43.235:8081/repository/tools/software/{{ app_name }}/"
 file_permission: 0777
 #packages: [unzip, curl]
-rollback_flag: 'false'
+rollback_flag: 'true'
 ...
 
