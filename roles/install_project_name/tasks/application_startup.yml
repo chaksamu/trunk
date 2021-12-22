@@ -23,7 +23,7 @@
 - name: Stop application  
   shell: >
          cd {{ software_installation_dir }}/{{ app_name }}/bin;
-         ./shutdown.sh
+         ./shutdown.sh;
          sleep 5;
   register: app_stop
   delegate_to: "{{ delegate_host }}"
@@ -64,7 +64,7 @@
 - name: Start application
   shell: >
          cd {{ software_installation_dir }}/{{ app_name }}/bin;
-         ./startup.sh
+         ./startup.sh;
          sleep 10;
   delegate_to: "{{ delegate_host }}"
 
