@@ -64,7 +64,7 @@
 - name: Start application
   shell: >
          cd {{ software_installation_dir }}/{{ app_name }}/bin;
-         ./startup.sh 2>&1 >/dev/null;
+         nohup ./startup.sh 2>&1 >/dev/null;
          sleep 10;
   delegate_to: "{{ delegate_host }}"
 
