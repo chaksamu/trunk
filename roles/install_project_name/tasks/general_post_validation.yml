@@ -2,4 +2,13 @@
 - name: Application Post Validation
   debug:
     msg: Will do Post validation
+
+- name: "Get current {{ app_name }} version info"
+  stat: 
+    path: "{{ software_installation_dir }}/{{ app_name }}"
+  register: version_result
+  
+- name: Print a debug message
+  debug:
+    msg: "Current Version: {{ version_result.stat.lnk_target }}"   
 ...
